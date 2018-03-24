@@ -54,14 +54,116 @@ void rotate(int dim, pixel *src, pixel *dst)
 	//RIDX(dim-1-j, i, dim) = (dim-1-j)*dim + i
 	//dim*dim - dim - dim*j + i
 	//dim^2 - jdim - dim + i
+	//dim*(j+1) = dim*j + dim
+	//dimj
 	int i, j;
+
+	int dst_index;
+	int dst_index_2;
+	int dst_index_3;
+	int dst_index_4;
+	int dst_index_5;
+	int dst_index_6;
+	int dst_index_7;
+	int dst_index_8;
+	int dst_index_9;
+	int dst_index_10;
+	int dst_index_11;
+	int dst_index_12;
+	int dst_index_13;
+	int dst_index_14;
+	int dst_index_15;
+	int dst_index_16;
+	int dst_index_17;
+	int dst_index_18;
+	int dst_index_19;
+	int dst_index_20;
+	int dst_index_21;
+	int dst_index_22;
+	int dst_index_23;
+	int dst_index_24;
+	int dst_index_25;
+	int dst_index_26;
+	int dst_index_27;
+	int dst_index_28;
+	int dst_index_29;
+	int dst_index_30;
+	int dst_index_31;
+	int dst_index_32;
+
 	int dimsq_minus_dim = (dim*dim)-dim;
+	int dim_times_2 = dim*2;
+	int dim_times_3 = dim*3;
+	int dim_times_4 = dim*4;
+	int dim_times_5 = dim*5;
+	int dim_times_6 = dim*6;
+	int dim_times_7 = dim*7;
+	int dim_times_8 = dim*8;
+	int dim_times_9 = dim*9;
+	int dim_times_10 = dim*10;
+	int dim_times_11 = dim*11;
+	int dim_times_12 = dim*12;
+	int dim_times_13 = dim*13;
+	int dim_times_14 = dim*14;
+	int dim_times_15 = dim*15;
+	int dim_times_16 = dim*16;
+	int dim_times_17 = dim*17;
+	int dim_times_18 = dim*18;
+	int dim_times_19 = dim*19;
+	int dim_times_20 = dim*20;
+	int dim_times_21 = dim*21;
+	int dim_times_22 = dim*22;
+	int dim_times_23 = dim*23;
+	int dim_times_24 = dim*24;
+	int dim_times_25 = dim*25;
+	int dim_times_26 = dim*26;
+	int dim_times_27 = dim*27;
+	int dim_times_28 = dim*28;
+	int dim_times_29 = dim*29;
+	int dim_times_30 = dim*30;
+	int dim_times_31 = dim*31;
+	int dimsq_minus_dim_plus_i, idim, idim_plus_j, dim_times_j;
 
 	for (i = 0; i < dim; i++){
-		int idim = i*dim;
-		for (j = 0; j < dim; j++){
-			int dst_index = dimsq_minus_dim - (dim*j) + i;
-			dst[dst_index] = src[idim+j];
+		dimsq_minus_dim_plus_i = dimsq_minus_dim + i;
+		idim = i*dim;
+		for (j = 0; j < dim; j+=32){
+			idim_plus_j = idim+j;
+
+			dst_index = dimsq_minus_dim_plus_i - (dim*j);
+
+			dst[dst_index] = src[idim_plus_j++];
+                        dst[dst_index+=dim] = src[idim_plus_j++];
+                        dst[dst_index+=dim] = src[idim_plus_j++];
+                        dst[dst_index+=dim] = src[idim_plus_j++];
+                        dst[dst_index+=dim] = src[idim_plus_j++];
+                        dst[dst_index+=dim] = src[idim_plus_j++];
+                        dst[dst_index+=dim] = src[idim_plus_j++];
+                        dst[dst_index+=dim] = src[idim_plus_j++];
+                        dst[dst_index+=dim] = src[idim_plus_j++];
+                        dst[dst_index+=dim] = src[idim_plus_j++];
+                        dst[dst_index+=dim] = src[idim_plus_j++];
+                        dst[dst_index+=dim] = src[idim_plus_j++];
+                        dst[dst_index+=dim] = src[idim_plus_j++];
+                        dst[dst_index+=dim] = src[idim_plus_j++];
+                        dst[dst_index+=dim] = src[idim_plus_j++];
+                        dst[dst_index+=dim] = src[idim_plus_j++];
+                        dst[dst_index+=dim] = src[idim_plus_j++];
+                        dst[dst_index+=dim] = src[idim_plus_j++];
+                        dst[dst_index+=dim] = src[idim_plus_j++];
+                        dst[dst_index+=dim] = src[idim_plus_j++];
+                        dst[dst_index+=dim] = src[idim_plus_j++];
+                        dst[dst_index+=dim] = src[idim_plus_j++];
+                        dst[dst_index+=dim] = src[idim_plus_j++];
+                        dst[dst_index+=dim] = src[idim_plus_j++];
+                        dst[dst_index+=dim] = src[idim_plus_j++];
+                        dst[dst_index+=dim] = src[idim_plus_j++];
+                        dst[dst_index+=dim] = src[idim_plus_j++];
+                        dst[dst_index+=dim] = src[idim_plus_j++];
+                        dst[dst_index+=dim] = src[idim_plus_j++];
+                        dst[dst_index+=dim] = src[idim_plus_j++];
+                        dst[dst_index+=dim] = src[idim_plus_j++];
+                        dst[dst_index+=dim] = src[idim_plus_j++];
 		}
 	}
 }
