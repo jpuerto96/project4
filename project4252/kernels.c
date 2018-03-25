@@ -54,16 +54,48 @@ void rotate(int dim, pixel *src, pixel *dst)
 	//RIDX(dim-1-j, i, dim) = (dim-1-j)*dim + i
 	//dim*dim - dim - dim*j + i
 	//dim^2 - jdim - dim + i
-	int i, j;
-	int dimsq_minus_dim = (dim*dim)-dim;
-
+	int i, j, dst_index, idim, dimsq_minus_dim_plus_i, idim_plus_j;
+        int dimsq_minus_dim = (dim*dim)-dim;
 	for (i = 0; i < dim; i++){
-		int idim = i*dim;
-		for (j = 0; j < dim; j++){
-			int dst_index = dimsq_minus_dim - (dim*j) + i;
-			dst[dst_index] = src[idim+j];
-		}
-	}
+                idim = i*dim;
+                dimsq_minus_dim_plus_i = dimsq_minus_dim + i;
+                for (j = 0; j < dim; j+=32){
+			idim_plus_j = idim+j;
+                        dst_index = dimsq_minus_dim_plus_i - (dim*j);
+                        dst[dst_index] = src[idim_plus_j++];
+                        dst[dst_index-=dim] = src[idim_plus_j++];
+                        dst[dst_index-=dim] = src[idim_plus_j++];
+                        dst[dst_index-=dim] = src[idim_plus_j++];
+                        dst[dst_index-=dim] = src[idim_plus_j++];
+                        dst[dst_index-=dim] = src[idim_plus_j++];
+                        dst[dst_index-=dim] = src[idim_plus_j++];
+                        dst[dst_index-=dim] = src[idim_plus_j++];
+                        dst[dst_index-=dim] = src[idim_plus_j++];
+                        dst[dst_index-=dim] = src[idim_plus_j++];
+                        dst[dst_index-=dim] = src[idim_plus_j++];
+                        dst[dst_index-=dim] = src[idim_plus_j++];
+                        dst[dst_index-=dim] = src[idim_plus_j++];
+                        dst[dst_index-=dim] = src[idim_plus_j++];
+                        dst[dst_index-=dim] = src[idim_plus_j++];
+                        dst[dst_index-=dim] = src[idim_plus_j++];
+                        dst[dst_index-=dim] = src[idim_plus_j++];
+                        dst[dst_index-=dim] = src[idim_plus_j++];
+                        dst[dst_index-=dim] = src[idim_plus_j++];
+                        dst[dst_index-=dim] = src[idim_plus_j++];
+                        dst[dst_index-=dim] = src[idim_plus_j++];
+                        dst[dst_index-=dim] = src[idim_plus_j++];
+                        dst[dst_index-=dim] = src[idim_plus_j++];
+                        dst[dst_index-=dim] = src[idim_plus_j++];
+                        dst[dst_index-=dim] = src[idim_plus_j++];
+                        dst[dst_index-=dim] = src[idim_plus_j++];
+                        dst[dst_index-=dim] = src[idim_plus_j++];
+                        dst[dst_index-=dim] = src[idim_plus_j++];
+                        dst[dst_index-=dim] = src[idim_plus_j++];
+                        dst[dst_index-=dim] = src[idim_plus_j++];
+                        dst[dst_index-=dim] = src[idim_plus_j++];
+                        dst[dst_index-=dim] = src[idim_plus_j];
+                }
+        }
 }
 
 /*********************************************************************
