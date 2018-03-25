@@ -45,59 +45,85 @@ void naive_rotate(int dim, pixel *src, pixel *dst)
  * IMPORTANT: This is the version you will be graded on
  */
 char rotate_descr[] = "rotate: Current working version";
-void rotate(int dim, pixel *src, pixel *dst) 
+void rotate(int dim, pixel *src, pixel *dst)
 {
-    //naive_rotate(dim, src, dst);
-	//RIDX(i, j, N) = i * N + j
+	int i, j;
+	int dst_index_plus_i, dst_index, dim_mult;
+        //dim^2 - dim - dimj
+        dim_mult = dim*dim - dim;
+	int tmp_i, i2, i3, i4, i5, i6, i7, i8, i9, i10, i11, i12, i13, i14, i15, i16, i17, i18, i19, i20, i21, i22, i23, i24, i25, i26, i27, i28, i29, i30, i31, i32;
 
-	//RIDX(i, j, dim)  = i*N + j
-	//RIDX(dim-1-j, i, dim) = (dim-1-j)*dim + i
-	//dim*dim - dim - dim*j + i
-	//dim^2 - jdim - dim + i
-	int i, j, dst_index, idim, dimsq_minus_dim_plus_i, idim_plus_j;
-        int dimsq_minus_dim = (dim*dim)-dim;
-	for (i = 0; i < dim; i++){
-                idim = i*dim;
-                dimsq_minus_dim_plus_i = dimsq_minus_dim + i;
-                for (j = 0; j < dim; j+=32){
-			idim_plus_j = idim+j;
-                        dst_index = dimsq_minus_dim_plus_i - (dim*j);
-                        dst[dst_index] = src[idim_plus_j++];
-                        dst[dst_index-=dim] = src[idim_plus_j++];
-                        dst[dst_index-=dim] = src[idim_plus_j++];
-                        dst[dst_index-=dim] = src[idim_plus_j++];
-                        dst[dst_index-=dim] = src[idim_plus_j++];
-                        dst[dst_index-=dim] = src[idim_plus_j++];
-                        dst[dst_index-=dim] = src[idim_plus_j++];
-                        dst[dst_index-=dim] = src[idim_plus_j++];
-                        dst[dst_index-=dim] = src[idim_plus_j++];
-                        dst[dst_index-=dim] = src[idim_plus_j++];
-                        dst[dst_index-=dim] = src[idim_plus_j++];
-                        dst[dst_index-=dim] = src[idim_plus_j++];
-                        dst[dst_index-=dim] = src[idim_plus_j++];
-                        dst[dst_index-=dim] = src[idim_plus_j++];
-                        dst[dst_index-=dim] = src[idim_plus_j++];
-                        dst[dst_index-=dim] = src[idim_plus_j++];
-                        dst[dst_index-=dim] = src[idim_plus_j++];
-                        dst[dst_index-=dim] = src[idim_plus_j++];
-                        dst[dst_index-=dim] = src[idim_plus_j++];
-                        dst[dst_index-=dim] = src[idim_plus_j++];
-                        dst[dst_index-=dim] = src[idim_plus_j++];
-                        dst[dst_index-=dim] = src[idim_plus_j++];
-                        dst[dst_index-=dim] = src[idim_plus_j++];
-                        dst[dst_index-=dim] = src[idim_plus_j++];
-                        dst[dst_index-=dim] = src[idim_plus_j++];
-                        dst[dst_index-=dim] = src[idim_plus_j++];
-                        dst[dst_index-=dim] = src[idim_plus_j++];
-                        dst[dst_index-=dim] = src[idim_plus_j++];
-                        dst[dst_index-=dim] = src[idim_plus_j++];
-                        dst[dst_index-=dim] = src[idim_plus_j++];
-                        dst[dst_index-=dim] = src[idim_plus_j++];
-                        dst[dst_index-=dim] = src[idim_plus_j];
+        for (i = 0; i < dim; i+=32) {
+		tmp_i = i;
+                i2 = ++tmp_i;
+                i3 = ++tmp_i;
+                i4 = ++tmp_i;
+                i5 = ++tmp_i;
+                i6 = ++tmp_i;
+                i7 = ++tmp_i;
+                i8 = ++tmp_i;
+                i9 = ++tmp_i;
+                i10 = ++tmp_i;
+                i11 = ++tmp_i;
+                i12 = ++tmp_i;
+                i13 = ++tmp_i;
+                i14 = ++tmp_i;
+                i15 = ++tmp_i;
+                i16 = ++tmp_i;
+                i17 = ++tmp_i;
+                i18 = ++tmp_i;
+                i19 = ++tmp_i;
+                i20 = ++tmp_i;
+                i21 = ++tmp_i;
+                i22 = ++tmp_i;
+                i23 = ++tmp_i;
+                i24 = ++tmp_i;
+                i25 = ++tmp_i;
+                i26 = ++tmp_i;
+                i27 = ++tmp_i;
+                i28 = ++tmp_i;
+                i29 = ++tmp_i;
+		i30 = ++tmp_i;
+		i31 = ++tmp_i;
+		i32 = ++tmp_i;
+                for (j = 0; j < dim; j++) {
+                        dst_index = dim_mult - dim*j;
+                        dst_index_plus_i = dst_index + i;
+                        dst[dst_index_plus_i++] = src[i * dim + j];
+                        dst[dst_index_plus_i++] = src[i2 * dim + j];
+                        dst[dst_index_plus_i++] = src[i3 * dim + j];
+                        dst[dst_index_plus_i++] = src[i4 * dim + j];
+                        dst[dst_index_plus_i++] = src[i5 * dim + j];
+                        dst[dst_index_plus_i++] = src[i6 * dim + j];
+                        dst[dst_index_plus_i++] = src[i7 * dim + j];
+                        dst[dst_index_plus_i++] = src[i8 * dim + j];
+                        dst[dst_index_plus_i++] = src[i9 * dim + j];
+                        dst[dst_index_plus_i++] = src[i10 * dim + j];
+                        dst[dst_index_plus_i++] = src[i11 * dim + j];
+                        dst[dst_index_plus_i++] = src[i12 * dim + j];
+                        dst[dst_index_plus_i++] = src[i13 * dim + j];
+                        dst[dst_index_plus_i++] = src[i14 * dim + j];
+                        dst[dst_index_plus_i++] = src[i15 * dim + j];
+                        dst[dst_index_plus_i++] = src[i16 * dim + j];
+                        dst[dst_index_plus_i++] = src[i17 * dim + j];
+                        dst[dst_index_plus_i++] = src[i18 * dim + j];
+                        dst[dst_index_plus_i++] = src[i19 * dim + j];
+                        dst[dst_index_plus_i++] = src[i20 * dim + j];
+                        dst[dst_index_plus_i++] = src[i21 * dim + j];
+                        dst[dst_index_plus_i++] = src[i22 * dim + j];
+                        dst[dst_index_plus_i++] = src[i23 * dim + j];
+                        dst[dst_index_plus_i++] = src[i24 * dim + j];
+                        dst[dst_index_plus_i++] = src[i25 * dim + j];
+                        dst[dst_index_plus_i++] = src[i26 * dim + j];
+                        dst[dst_index_plus_i++] = src[i27 * dim + j];
+                        dst[dst_index_plus_i++] = src[i28 * dim + j];
+                        dst[dst_index_plus_i++] = src[i29 * dim + j];
+                        dst[dst_index_plus_i++] = src[i30 * dim + j];
+                        dst[dst_index_plus_i++] = src[i31 * dim + j];
+                        dst[dst_index_plus_i++] = src[i32 * dim + j];
                 }
         }
 }
-
 /*********************************************************************
  * register_rotate_functions - Register all of your different versions
  *     of the rotate kernel with the driver by calling the
